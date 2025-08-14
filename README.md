@@ -41,11 +41,11 @@ To set up the project locally, follow these steps:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/fittrack.git
+   git clone https://github.com/viswalegend27/RepUp-Free-Fitness-Tracker.git
    ```
 2. Navigate to the project directory:
    ```
-   cd fittrack
+   cd RepUp-Free-Fitness-Tracker
    ```
 3. Install dependencies:
    ```
@@ -62,7 +62,6 @@ npm run develop
 
 This command will concurrently run the backend server and frontend React app. Open your browser and navigate to `http://localhost:3000` to access the app.
 
-For a live demo, [click here to visit the deployed app!](https://fittrack-mlvj.onrender.com)
 
 ### Screenshots
 
@@ -112,5 +111,5 @@ Contributions are welcome! If you'd like to contribute, please fork the reposito
 ## Questions
 
 If you have any questions or need further assistance, feel free to reach out:  
-- GitHub: [Viswa V's Profile](https://github.com/your-github-username) (replace with your actual GitHub username)  
-- Email: your-email@example.com (replace with your actual email)
+- GitHub: [Viswa V's Profile](https://github.com/viswalegend27) (replace with your actual GitHub username)  
+- Email: viswamalar2004@gmail.com
