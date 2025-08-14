@@ -2,7 +2,7 @@
 const API_BASE_URL =
   window.location.hostname === "localhost"
     ? "http://localhost:3000"
-    : "https://your-backend-domain.vercel.app";
+    : "https://rep-up-free-fitness-tracker.vercel.app/";
 
 // Helper: make a request with optional token
 const request = (endpoint, method = "GET", data = null, token = null) => {
