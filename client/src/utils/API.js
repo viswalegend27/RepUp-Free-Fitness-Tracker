@@ -1,121 +1,68 @@
-export const getMe = (token) => {
-  return fetch('/api/user/me', {
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`,
-    },
+// Base API URL detection: Localhost → local server, else deployed backend
+const API_BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:3000"
+    : "https://your-backend-domain.vercel.app";
+
+// Helper: make a request with optional token
+const request = (endpoint, method = "GET", data = null, token = null) => {
+  const headers = { "Content-Type": "application/json" };
+  if (token) headers.authorization = `Bearer ${token}`;
+
+  return fetch(`${API_BASE_URL}${endpoint}`, {
+    method,
+    headers,
+    body: data ? JSON.stringify(data) : null,
   });
 };
 
-export const createUser = (userData) => {
-  return fetch("/api/user", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(userData),
-  });
-};
+// ==========================
+// Auth Routes
+// ==========================
+export const getMe = (token) =>
+  request("/api/user/me", "GET", null, token);
 
-export const loginUser = (userData) => {
-  return fetch("/api/user/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(userData),
-  });
-};
+export const createUser = (userData) =>
+  request("/api/user", "POST", userData);
 
-export const createCardio = (cardioData, token) => {
-  return fetch("/api/exercise/cardio", {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(cardioData)
-  });
-};
+export const loginUser = (userData) =>
+  request("/api/user/login", "POST", userData);
 
-export const createResistance = (resistanceData, token) => {
-  return fetch("/api/exercise/resistance", {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(resistanceData)
-  });
-};
+// ==========================
+// Cardio Routes
+// ==========================
+export const createCardio = (cardioData, token) =>
+  request("/api/exercise/cardio", "POST", cardioData, token);
 
-export const createStrengthTraining = (strengthData, token) => {
-  return fetch("/api/exercise/strengthtraining", {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(strengthData)
-  });
-};
+export const getCardioById = (cardioId, token) =>
+  request(`/api/exercise/cardio/${cardioId}`, "GET", null, token);
 
-export const getCardioById = (cardioId, token) => {
-  return fetch(`/api/exercise/cardio/${cardioId}`, {
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`,
-    }
-  });
-};
+export const deleteCardio = (cardioId, token) =>
+  request(`/api/exercise/cardio/${cardioId}`, "DELETE", null, token);
 
-export const getResistanceById = (resistanceId, token) => {
-  return fetch(`/api/exercise/resistance/${resistanceId}`, {
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`,
-    }
-  });
-};
+// ==========================
+// Resistance Routes
+// ==========================
+export const createResistance = (resistanceData, token) =>
+  request("/api/exercise/resistance", "POST", resistanceData, token);
 
-export const getStrengthTrainingById = (strengthId, token) => { //Changed
-  return fetch(`/api/exercise/strength/${strengthId}`, {
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`,
-    }
-  });
-};
+export const getResistanceById = (resistanceId, token) =>
+  request(`/api/exercise/resistance/${resistanceId}`, "GET", null, token);
 
+export const deleteResistance = (resistanceId, token) =>
+  request(`/api/exercise/resistance/${resistanceId}`, "DELETE", null, token);
 
-export const getStrengthTrainingRecords = (token) => {
-  return fetch(`/api/exercise/strengthtraining`, {
-    headers: {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`,
-    }
-  });
-};
+// ==========================
+// Strength Training Routes
+// ==========================
+export const createStrengthTraining = (strengthData, token) =>
+  request("/api/exercise/strengthtraining", "POST", strengthData, token);
 
-export const deleteCardio = (cardioId, token) => {
-  return fetch(`/api/exercise/cardio/${cardioId}`, {
-    method: "DELETE",
-    headers: {
-      authorization: `Bearer ${token}`,
-    }
-  });
-};
+export const getStrengthTrainingById = (strengthId, token) =>
+  request(`/api/exercise/strengthtraining/${strengthId}`, "GET", null, token);
 
-export const deleteResistance = (resistanceId, token) => {
-  return fetch(`/api/exercise/resistance/${resistanceId}`, {
-    method: "DELETE",
-    headers: {
-      authorization: `Bearer ${token}`,
-    }
-  });
-};
+export const getStrengthTrainingRecords = (token) =>
+  request("/api/exercise/strengthtraining", "GET", null, token);
 
-export const deleteStrengthTraining = (strengthId, token) => {
-  return fetch(`/api/exercise/strengthtraining/${strengthId}`, {
-    method: "DELETE",
-    headers: {
-      authorization: `Bearer ${token}`,
-    }
-  });
-};
+export const deleteStrengthTraining = (strengthId, token) =>
+  request(`/api/exercise/strengthtraining/${strengthId}`, "DELETE", null, token);
