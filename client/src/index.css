@@ -1,0 +1,751 @@
+:root {
+  --main-color: #b3f12c;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* ---------------------------1. header--------------------------------- */
+.dumbbell-icon {
+  height: 24px;
+  margin-right: 3px;
+}
+
+.brand {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.brand-logged {
+  margin-left: 5px;
+  font-size: 20px;
+}
+
+.brand-new {
+  margin-top: 20px;
+}
+
+.brand-text {
+  color: black;
+}
+
+.brand-text:hover {
+  color: black;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='whitesmoke' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/* -------------------- NAV BUTTON-LIKE LINKS -------------------- */
+/* Navbar container */
+.navbar {
+  background: rgba(0, 0, 0, 0.7); /* semi-transparent black overlay */
+  backdrop-filter: blur(5px); /* glass blur effect */
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Navigation links container */
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+/* Each nav link */
+.nav-link {
+  color: white !important;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  background: var(--main-color);
+  color: white !important;
+  text-decoration: none;
+}
+
+/* Ensure logout button doesn't touch the edge */
+.nav-link.logout {
+  margin-right: 10px;
+}
+
+
+/* --------------------------------- 2. home page---------------------------------  */
+.homepage {
+  background-image: url("./assets/images/gym-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* 100% of the viewport height */
+}
+
+.home {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translate(-50%);
+  color: whitesmoke;
+}
+
+.home-title {
+  background-color: #4caf50;
+  color: rgb(37, 36, 36);
+  border-radius: 25px;
+  padding: 15px 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: background-color, color, border, transform;
+  position: relative;
+  overflow: hidden;
+  font-size: 2em; 
+}
+
+.home-title:hover {
+  background: #388a25;
+  background: linear-gradient(90deg, rgba(56, 138, 37, 1) 16%, rgba(67, 209, 95, 1) 68%, rgba(130, 255, 128, 1) 85%);
+  color: rgba(0, 0, 0, 0.98);
+  font-size: 35px;
+  transform: scale(1.01);
+  padding: 15px 25px;
+}
+
+@keyframes smoothTransition {
+  0% { opacity: 0; transform: translateY(-50%) translateX(0); }
+  50% { opacity: 1; transform: translateY(-50%) translateX(10px); }
+  100% { opacity: 0; transform: translateY(-50%) translateX(0); }
+}
+
+.home-text {
+  margin: 10px auto 15px auto;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #4caf50;
+  color: rgb(37, 36, 36);
+  border-radius: 15px;
+  padding-inline-start: 20px;
+  padding-inline-end: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.home-text:hover {
+  background: #388a25;
+  background: linear-gradient(90deg, rgba(56, 138, 37, 1) 16%, rgba(67, 209, 95, 1) 68%, rgba(130, 255, 128, 1) 85%);
+  color: rgba(0, 0, 0, 0.98);
+  transform: scale(1.02);
+  padding: 15px 25px;
+}
+
+.home-btn,
+.signup-btn,
+.submit-btn {
+  margin: 10px auto 15px auto;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #4caf50;
+  color: rgb(37, 36, 36);
+  border-radius: 15px;
+  padding-inline-start: 20px;
+  padding-inline-end: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: none;
+}
+
+.home-btn:hover,
+.signup-btn:hover,
+.submit-btn:hover {
+  background: #388a25;
+  background: linear-gradient(90deg, rgba(56, 138, 37, 1) 16%, rgba(67, 209, 95, 1) 68%, rgba(130, 255, 128, 1) 85%);
+  color: rgba(0, 0, 0, 0.98);
+  transform: scale(1.03);
+}
+
+/* 768px */
+@media (max-width: 768px) {
+  .homepage {
+    height: 100vh;
+  }
+  .home {
+    bottom: 5%;
+    width: 90%;
+  }
+  .home-title {
+    font-size: 1.5em;
+    padding: 10px 20px;
+  }
+  .home-title:hover {
+    font-size: 25px;
+    padding: 10px 15px;
+  }
+  .home-text {
+    font-size: 12px;
+    padding-inline-start: 15px;
+    padding-inline-end: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  .home-text:hover {
+    padding: 10px 15px;
+  }
+  .home-btn,
+  .signup-btn,
+  .submit-btn {
+    width: 150px;
+    height: 35px;
+  }
+}
+
+/* 769px to 1200px */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .homepage {
+    height: 100vh;
+  }
+  .home {
+    bottom: 10%;
+    width: 80%;
+  }
+  .home-title {
+    font-size: 1.8em;
+    padding: 12px 30px;
+  }
+  .home-title:hover {
+    font-size: 30px;
+    padding: 12px 20px;
+  }
+  .home-text {
+    font-size: 14px;
+    padding-inline-start: 18px;
+    padding-inline-end: 18px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  .home-text:hover {
+    padding: 12px 20px;
+  }
+  .home-btn,
+  .signup-btn,
+  .submit-btn {
+    width: 180px;
+    height: 38px;
+  }
+}
+
+/* above 1200px */
+@media (min-width: 1201px) {
+  .homepage {
+    height: 100vh;
+  }
+  .home {
+    bottom: 12%;
+    width: 70%;
+  }
+  .home-title {
+    font-size: 2em;
+    padding: 15px 40px;
+  }
+  .home-title:hover {
+    font-size: 35px;
+    padding: 15px 25px;
+  }
+  .home-text {
+    font-size: 15px;
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .home-text:hover {
+    padding: 15px 25px;
+  }
+  .home-btn,
+  .signup-btn,
+  .submit-btn {
+    width: 200px;
+    height: 40px;
+  }
+}
+
+/* 3. --------------------------------- sign up and login page-------------------------------- */
+/* Signup Page Background */
+.signup {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(./assets/images/gym-rack.png);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Signup Card Style */
+.signup-form {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  width: 320px;
+  margin: 0;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Label Styling */
+.signup-form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #110707;
+}
+
+/* Input Fields */
+.signup-form input {
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #000000;
+}
+
+.signup-form input::placeholder {
+  color: rgba(58, 56, 56, 0.7);
+}
+
+/* Submit Button */
+.signup-btn {
+  width: 100%;
+  height: 46px;
+  background: #ff4b2b;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.link-btn-second{
+  color: rgb(18, 54, 57);
+}
+
+.link-btn-second:hover{
+  color: rgb(31, 31, 30);
+}
+.signup-btn:hover {
+  background: #f63b67;
+  transform: translateY(-2px);
+}
+
+/* Link Styling */
+.link-btn {
+  color: #2c200d;
+  text-decoration: none;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+/* Error Message */
+.err-message {
+  color: #ff6b6b;
+  font-size: 14px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* --------------------------------- 4. history page---------------------------------   */
+.title {
+  margin: 30px auto 20px auto;
+  font-weight: 900;
+}
+
+.history {
+  height: 100vh;
+  background-image: url("./assets/images/gym-rack.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+.title:after {
+  content: ""; /* This is necessary for the pseudo element to work. */
+  display: block; /* This will put the pseudo element on its own line. */
+  margin: 0 auto; /* This will center the border. */
+  width: 35px; /* length of border */
+  padding-top: 3px; /* This creates some space between the element and the border. */
+  border-bottom: 2px solid; /* This creates the border. Replace black with whatever color you want. */
+}
+
+.history-text {
+  margin: 20px auto;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.history-data {
+  margin-bottom: 20px;
+}
+
+.history-div {
+  margin: 15px auto;
+}
+
+.date {
+  display: inline-block;
+  min-width: 70px;
+  margin-right: 16px;
+  font-weight: bold;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 2px 8px; 
+  border-radius: 10px;
+}
+
+.history-card {
+  width: 240px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: white;
+  position: relative;
+  transform: rotateY(15deg);
+  background: rgba(255, 255, 255, 0.15); /* Transparent white */
+  backdrop-filter: blur(8px); /* Glass blur effect */
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  transition: transform 0.3s ease;
+}
+
+.history-card:hover {
+  transform: rotateY(0deg) scale(1.02);
+}
+
+.history-icon {
+  height: 35px;
+  margin-right: 14px;
+}
+
+.cardio-title,
+.cardio-btn {
+  background-color: var(--main-color);
+  padding: 10px;
+  border-radius: 8px;
+  color: black;
+}
+
+.resistance-title,
+.resistance-btn {
+  background-color: lightskyblue;
+  padding: 10px;
+  border-radius: 8px;
+  color: black;
+}
+
+.strength-title,
+.strengthtraining-btn{
+  background-color: #46333d;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.history-name {
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.history-index {
+  margin: 0 auto;
+  font-size: 13px;
+}
+
+.show-btn {
+  margin: 20px auto;
+  border: none;
+  background-color: white;
+  font-size: 15px;
+}
+
+.show-btn:hover {
+  font-weight: bold;
+}
+
+
+/* --------------------------------- 5.exercise page---------------------------------   */
+.exercise-background {
+  height: 100vh;
+  background-image: url("./assets/images/gym-ambience.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+.exercise-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.exercise-content {
+  background: rgba(255, 255, 255, 0.15); /* Slightly transparent white */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px); /* Glass blur effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+  max-width: 400px;
+  width: 100%;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.exercise-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.exercise-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 12px 18px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.exercise-buttons button:hover {
+  transform: scale(1.05);
+}
+
+.cardio-btn {
+  background: #ff6b6b;
+  color: rgb(40, 40, 40);
+}
+
+.resistance-btn {
+  background: #4ecdc4;
+  color: rgb(40, 40, 40);
+}
+
+.strengthtraining-btn {
+  background: #468a95;
+  color: rgb(40, 40, 40);
+}
+
+.exercise-icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+}
+
+
+
+/* ------------------------------- 6. cardio, resistance, strength-training page--------------------------------*/
+.exercise-form-icon {
+  height: 50px;
+  width: 50px;
+  margin-bottom: 20px;
+}
+
+.cardio,
+.single-cardio {
+  background-image: url("./assets/images/running.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: white;
+}
+
+.resistance,
+.single-resistance {
+  background-image: url("./assets/images/dumbell.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: white;
+}
+
+.strengthtraining,
+.single-strength {
+  background-image: url("./assets/images/weight-lift.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: white;
+}
+
+.cardio-form,
+.resistance-form,
+.cardio-div,
+.resistance-div,
+.strength-form,
+.strength-div {
+  /* background-color: rgba(255, 255, 255, 0.2); */
+  border-radius: 10px;
+  padding: 20px;
+  width: 290px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.cardio-form label,
+.resistance-form label, 
+.strength-form label{
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+.cardio-form input,
+.resistance-form input, 
+.strength-form input{
+  margin-bottom: 10px;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid white;
+  color: white;
+  width: 100%;
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.message {
+  font-weight: bold;
+  color: yellow;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* ---------------------------------7.single exercise page--------------------------------- */
+.cardio-div,
+.resistance-div,
+.strength-div {
+  width: 280px;
+}
+
+.single-exercise span {
+  color: var(--main-color);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.delete-btn {
+  border: none;
+  border-radius: 6px;
+  background-color: red;
+  color: whitesmoke;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 15px;
+  margin: 10px auto;
+}
+
+.delete-btn:hover {
+  background-color: rgb(211, 5, 5);
+}
+
+.react-confirm-alert-overlay {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.react-confirm-alert-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 260px;
+  padding: 20px 10px;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.react-confirm-alert-body h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.react-confirm-alert-button-group button{
+  font-weight: bold;
+  font-size: 14px;
+}
+.react-confirm-alert-button-group button:last-child {
+  background-color: red;
+}
+
+
+/* --------------------------------- 9. Loading state --------------------------------- */
+
+.loading-state {
+  margin: 10px auto 15px auto;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #4caf50;
+  color: rgb(37, 36, 36);
+  border-radius: 15px;
+  padding-inline-start: 20px;
+  padding-inline-end: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: none;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.9; }
+}
