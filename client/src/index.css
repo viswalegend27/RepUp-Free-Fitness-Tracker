@@ -384,6 +384,67 @@ code {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Tablet adjustments */
+@media (max-width: 768px) {
+  .signup {
+    padding: 20px;
+    background-position: top;
+  }
+
+  .signup-form {
+    width: 90%;
+    padding: 25px;
+  }
+
+  .signup-form input {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .signup-btn {
+    height: 42px;
+    font-size: 15px;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .signup {
+    background-size: cover;
+    background-position: center;
+    padding: 15px;
+  }
+
+  .signup-form {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .signup-form label {
+    font-size: 14px;
+  }
+
+  .signup-form input {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .signup-btn {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .link-btn,
+  .link-btn-second {
+    font-size: 13px;
+  }
+
+  .err-message {
+    font-size: 12px;
+  }
+}
+
 
 /* --------------------------------- 4. history page---------------------------------   */
 .title {
@@ -503,6 +564,79 @@ code {
   font-weight: bold;
 }
 
+/* Tablet adjustments */
+@media (max-width: 768px) {
+  .history {
+    padding: 15px;
+    background-position: top;
+  }
+
+  .title {
+    font-size: 22px;
+    margin: 20px auto 15px auto;
+  }
+
+  .history-card {
+    width: 200px;
+    padding: 8px 12px;
+    transform: none;
+  }
+
+  .history-icon {
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  .show-btn {
+    font-size: 14px;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .history {
+    padding: 10px;
+    align-items: center;
+    background-size: cover;
+  }
+
+  .title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .history-text {
+    font-size: 14px;
+    text-align: center;
+    margin: 10px auto;
+  }
+
+  .history-card {
+    width: 90%;
+    padding: 10px;
+    transform: none;
+    margin: 10px auto;
+  }
+
+  .date {
+    min-width: auto;
+    padding: 3px 6px;
+    font-size: 13px;
+  }
+
+  .history-name {
+    font-size: 14px;
+  }
+
+  .history-index {
+    font-size: 12px;
+  }
+
+  .show-btn {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+}
 
 /* --------------------------------- 5.exercise page---------------------------------   */
 .exercise-background {
@@ -584,7 +718,72 @@ code {
   margin-right: 12px;
 }
 
+/* Tablet adjustments */
+@media (max-width: 768px) {
+  .exercise-background {
+    background-position: top;
+    padding: 20px;
+  }
 
+  .exercise-layout {
+    flex-direction: column;
+  }
+
+  .exercise-content {
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .exercise-buttons button {
+    font-size: 1rem;
+    padding: 10px 14px;
+  }
+
+  .exercise-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .exercise-background {
+    padding: 15px;
+    background-size: cover;
+  }
+
+  .exercise-content {
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .exercise-buttons {
+    gap: 10px;
+  }
+
+  .exercise-buttons button {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    justify-content: center; /* center text & icon on small screens */
+  }
+
+  .exercise-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+}
 
 /* ------------------------------- 6. cardio, resistance, strength-training page--------------------------------*/
 .exercise-form-icon {
@@ -668,6 +867,7 @@ code {
   margin-top: 20px;
   text-align: center;
 }
+
 
 /* ---------------------------------7.single exercise page--------------------------------- */
 .cardio-div,

@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import Auth from "../utils/auth";
 import { createStrengthTraining } from "../utils/API";
 import Header from "./Header";
-import resistanceIcon from "../assets/images/strength-training-w.png";
+import strengthIcon from "../assets/images/strength-training-w.png";
 
 export default function StrengthTraining() {
 const [form, setForm] = useState({
@@ -72,7 +72,9 @@ if (!loggedIn) return <Navigate to="/login" />;
             <div className="d-flex justify-content-center">
             <img
                 alt="strength training"
-                src={resistanceIcon}
+                src={strengthIcon
+                
+                }
                 className="exercise-form-icon"
             />
             </div>
@@ -81,7 +83,7 @@ if (!loggedIn) return <Navigate to="/login" />;
             <React.Fragment key={field}>
                 <label>
                 {field.charAt(0).toUpperCase() + field.slice(1)}
-                {field !== "name" && " (lbs)"}
+                {field === "weight" && " (lbs)"}
                 </label>
                 <input
                 type={field === "name" ? "text" : "number"}

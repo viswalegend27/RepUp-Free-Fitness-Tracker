@@ -60,14 +60,20 @@ npm run develop
 - Add Resistance <br>
   ![Screenshot](./client/src/assets/screenshots/5.png)
 
-- History Page <br>
+- Add StrengthTraining <br>
   ![Screenshot](./client/src/assets/screenshots/6.png)
 
-- Single Cardio History <br>
+- History Page <br>
   ![Screenshot](./client/src/assets/screenshots/7.png)
 
-- Single Resistance History <br>
+- Single Cardio History <br>
   ![Screenshot](./client/src/assets/screenshots/8.png)
+
+- Single Resistance History <br>
+  ![Screenshot](./client/src/assets/screenshots/9.png)
+
+- Single StrengthTraining History <br>
+  ![Screenshot](./client/src/assets/screenshots/10.png)
 
 ## License
 
