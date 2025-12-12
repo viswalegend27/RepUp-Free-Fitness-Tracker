@@ -3,6 +3,8 @@ import { useState } from "react";
 import Auth from "../utils/auth";
 import Container from "react-bootstrap/Container";
 import Header from "../components/Header";
+import LoadingSpinner from "../components/LoadingSpinner"; // ✅ Imported my loading spinner class
+
 
 export default function Home() {
   const navigate = useNavigate();
@@ -41,7 +43,9 @@ export default function Home() {
         </p>
 
         {loading ? (
-          <p className="loading-state">Loading, please wait...</p>
+          <div className="home-btn">
+            <LoadingSpinner/>
+          </div> /*Spinner class*/
         ) : loggedIn ? (
           <button className="home-btn" onClick={() => handleNavigation("/exercise")}>
             Add Exercise

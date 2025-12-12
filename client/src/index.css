@@ -288,7 +288,7 @@ code {
   }
 }
 
-/* 3. --------------------------------- sign up and login page-------------------------------- */
+/* ---------------------------------3. sign up and login page-------------------------------- */
 /* Signup Page Background */
 .signup {
   height: 100vh;
@@ -351,10 +351,12 @@ code {
 }
 
 .link-btn-second{
+  text-decoration: none;
   color: rgb(18, 54, 57);
 }
 
 .link-btn-second:hover{
+  text-decoration: underline;
   color: rgb(31, 31, 30);
 }
 .signup-btn:hover {
@@ -366,10 +368,6 @@ code {
 .link-btn {
   color: #2c200d;
   text-decoration: none;
-}
-
-.link-btn:hover {
-  text-decoration: underline;
 }
 
 /* Error Message */
@@ -926,7 +924,7 @@ code {
 }
 
 
-/* --------------------------------- 9. Loading state --------------------------------- */
+/* --------------------------------- 8. Loading state --------------------------------- */
 
 .loading-state {
   margin: 10px auto 15px auto;
