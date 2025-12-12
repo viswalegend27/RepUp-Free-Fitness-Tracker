@@ -4,35 +4,40 @@ const secret = "mysecretsdontmess";
 const expiration = "6h";
 
 module.exports = {
-  // function for our authenticated routes
-  authMiddleware: function (req, res, next) {
-    // allows token to be sent via  req.query or headers
-    let token = req.body.token || req.query.token || req.headers.authorization;
+  authMiddleware(req, res, next) {
+    // Accept token from ALL possible locations
+    let token =
+      req.headers.authorization ||
+      req.headers.Authorization ||
+      req.body.token ||
+      req.query.token;
 
-    // ["Bearer", "<tokenvalue>"]
-    if (req.headers.authorization) {
-      token = token.split(' ').pop().trim();
-    }
-
+    // If no token -> exit early
     if (!token) {
-      return res.status(400).json({ message: 'You have no token!' });
+      console.log("🚫 No token found in request");
+      return res.status(401).json({ message: "No token provided" });
     }
 
-    // verify token and get user data out of it
+    // If token comes as "Bearer <token>"
+    if (token.startsWith("Bearer ")) {
+      token = token.split(" ").pop().trim();
+    }
+
     try {
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
+
+      // Attach user data to request
       req.user = data;
-    } catch {
-      console.log('Invalid token');
-      return res.status(400).json({ message: 'invalid token!' });
+
+      next();
+    } catch (err) {
+      console.log("❌ Invalid token:", err.message);
+      return res.status(401).json({ message: "Invalid or expired token" });
     }
-
-    // send to next endpoint
-    next();
   },
-  signToken: function ({ username, email, _id }) {
-    const payload = { username, email, _id };
 
+  signToken({ username, email, _id }) {
+    const payload = { username, email, _id };
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };

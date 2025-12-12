@@ -14,6 +14,8 @@ import SingleExercise from "./components/SingleExercise"
 import Cardio from "./components/Cardio";
 import Resistance from "./components/Resistance";
 import StrengthTraining from './components/StrengthTraining';
+import AddCustomExercise from "./pages/AddCustomExercise";
+
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path="/exercise/cardio" element={<Cardio />} />
         <Route path="/exercise/resistance" element={<Resistance />} />
         <Route path="/exercise/strengthtraining" element={<StrengthTraining />} />
+        <Route path="/exercise/custom" element={<AddCustomExercise />} />
+
         <Route path="*" element={<Error />} />
       </Routes>
     </Router >

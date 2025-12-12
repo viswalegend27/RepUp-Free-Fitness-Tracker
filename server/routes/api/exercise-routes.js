@@ -18,6 +18,12 @@ const {
   deleteStrengthTraining,
 } = require("../../controllers/strength-controller");
 
+const {
+  createCustomExercise,
+  getCustomById,
+  deleteCustomExercise
+} = require("../../controllers/custom-controller");
+
 // Import middleware
 const { authMiddleware } = require('../../utils/auth');
 
@@ -43,5 +49,13 @@ router.route("/strength/:id")
   .delete(deleteStrengthTraining);
 
 router.route("/strengthtraining/:id").delete(deleteStrengthTraining);
+
+// CUSTOM EXERCISE ROUTES
+router.route("/custom")
+  .post(createCustomExercise);
+
+router.route("/custom/:id")
+  .get(getCustomById)
+  .delete(deleteCustomExercise);
 
 module.exports = router;

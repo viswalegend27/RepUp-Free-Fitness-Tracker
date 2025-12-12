@@ -47,6 +47,14 @@ export default function Exercise() {
           <img alt="strengthtraining" src={strengthTrainingIcon} className="exercise-icon" />
           Strength training
         </button>
+        <button
+          className="custom-btn"
+          onClick={() => navigate("/exercise/custom")}
+        >
+          <img alt="custom" src={resistanceIcon} className="exercise-icon" />
+          Custom Exercise
+        </button>
+
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3000";
 
 const jsonHeader = { "Content-Type": "application/json" };
-const authHeader = (token) => ({ authorization: `Bearer ${token}` });
+const authHeader = (token) => ({ Authorization: `Bearer ${token}` });
 
 const log = (msg) => console.log(`[API] ${msg}`);
 
@@ -69,4 +69,25 @@ export const deleteResistance = (id, token) => {
 export const deleteStrengthTraining = (id, token) => {
   log(`Deleting strength training ID: ${id}`);
   return fetch(`${API_URL}/api/exercise/strengthtraining/${id}`, { method: "DELETE", headers: authHeader(token) });
+};
+
+export const createCustomExercise = (data, token) => {
+  return fetch(`${API_URL}/api/exercise/custom`, {
+    method: "POST",
+    headers: { ...jsonHeader, ...authHeader(token) },
+    body: JSON.stringify(data),
+  });
+};
+
+export const getCustomExerciseById = (id, token) => {
+  return fetch(`${API_URL}/api/exercise/custom/${id}`, {
+    headers: { ...jsonHeader, ...authHeader(token) }
+  });
+};
+
+export const deleteCustomExercise = (id, token) => {
+  return fetch(`${API_URL}/api/exercise/custom/${id}`, {
+    method: "DELETE",
+    headers: authHeader(token)
+  });
 };
